@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects – ByteSphere Animation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #111;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .project-pictures {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container-projects {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      width: 100%;
+      background: #1c1c1c;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+      gap: 40px;
+
+      opacity: 0;
+      transform: translateX(150px);
+      transition: all 1s ease;
+    }
+
+    .container-projects.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== IMAGE BOX ===== */
+    .image-box {
+  width: 50%;
+  height: 300px;
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 1s ease;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ensures the full image is visible */
+  border-radius: 10px;
+  background-color: #000; /* gives a clean dark frame if image doesn’t fill box */
+}
+
+
+    /* ===== TEXT BOX ===== */
+    .text-box {
+      width: 50%;
+      opacity: 0;
+      transform: translateX(100px);
+      transition: all 1s ease;
+    }
+
+    .text-box h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #00aaff;
+      line-height: 1.2;
+    }
+
+    .text-box p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      color: #ccc;
+    }
+
+    .text-box button {
+      background: #0077ff;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .text-box button:hover {
+      background: #005fcc;
+    }
+
+    /* ===== ACTIVE ANIMATIONS ===== */
+    .image-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+      animation: bounce 1.2s ease;
+    }
+
+    .text-box.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(-100px); }
+      50% { transform: translateY(20px); }
+      70% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* ===== RESPONSIVE STYLES ===== */
+    @media (max-width: 1024px) {
+      .container-projects {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 40px 25px;
+      }
+
+      .image-box, .text-box {
+        width: 100%;
+      }
+
+      .text-box {
+        transform: translateY(50px);
+      }
+
+      .text-box h1 {
+        font-size: 1.8rem;
+      }
+
+      .text-box p {
+        font-size: 0.95rem;
+      }
+
+      .text-box button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .project-pictures {
+        padding: 60px 15px;
+      }
+
+      .container-projects {
+        padding: 25px 20px;
+        border-radius: 12px;
+      }
+
+      .image-box {
+        height: 200px;
+      }
+
+      .text-box h1 {
+        font-size: 1.5rem;
+      }
+
+      .text-box p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .text-box button {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="project-pictures">
+    <div class="container-projects">
+      <div class="image-box">
+        <img src="console_pic.png" alt="Project Image">
+      </div>
+      <div class="text-box">
+        <h1>Project 1</h1>
+        <p>This is the project that I mentioned earlier about a rock-paper</p>
+        <button>VISIT PROJECT</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-pictures">
+    <div class="container-projects">
+      <div class="image-box">
+        <img src="images/adventure-type games.PNG" alt="CodeWave">
+      </div>
+      <div class="text-box">
+        <h1>Project 2</h1>
+        <p>This like I mentioned before is a project related to an adventure tupe game.</p>
+        <button onclick="window.open('https://github.com/AimanWajid-1/rock-paper-scissors', '_blank')">VISIT PROJECT</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-pictures">
+    <div class="container-projects">
+      <div class="image-box">
+        <img src="images/dice-rolling-game-pic.PNG" alt="DataForge">
+      </div>
+      <div class="text-box">
+        <h1>Projects 3</h1>
+        <p>DataForge focuses on performance visualization for developers — built with precision and smooth animation.</p>
+        <button>Since they are small scaled projects I only added one visit projects.</button>
+      </div>
+    </div>
+  </section>
+   <section class="project-pictures">
+    <div class="container-projects">
+      <div class="image-box">
+        <img src="images/m-c-q-pic.PNG" alt="DataForge">
+      </div>
+      <div class="text-box">
+        <h1>Projects 3</h1>
+        <p>DataForge focuses on performance visualization for developers — built with precision and smooth animation.</p>
+        <button>VISIT PROJECT</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.container-projects, .image-box, .text-box')
+      .forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

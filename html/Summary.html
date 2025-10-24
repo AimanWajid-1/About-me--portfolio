@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Summary About me.</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f2f2f2;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      max-width: 960px;
+      margin: 40px auto;
+      gap: 40px;
+      align-items: flex-start;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      animation: slideIn 1s ease forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .left {
+      flex: 1;
+      max-width: 350px;
+    }
+
+    .left img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .right {
+      flex: 2;
+    }
+
+    .name {
+      font-weight: bold;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      color: #2c3e50;
+    }
+
+    .title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .highlight {
+      font-weight: 600;
+      margin-top: 20px;
+      color: #16a085;
+    }
+
+    .education {
+      margin-top: 20px;
+    }
+
+    .education strong {
+      color: #34495e;
+    }
+
+    /* 🔁 Responsive Styling */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .left,
+      .right {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .name {
+        font-size: 1.4rem;
+      }
+
+      .description {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left">
+      <img src="https://cdn.pixabay.com/photo/2024/08/11/19/38/ai-generated-8962177_640.png" alt="Ayan Wajid" />
+    </div>
+    <div class="right">
+      <div class="name">Ayan Wajid.</div>
+      <div class="title">Future AI developer in Pakistan.</div>
+      <div class="description">
+        I am deeply passionate about becoming an AI developer because I am fascinated by the potential of artificial intelligence to transform the way we live and work. The idea of creating intelligent systems that can learn, adapt, and solve complex problems excites me, and I am committed to developing the skills and knowledge necessary to contribute meaningfully to this rapidly evolving field. Alongside my technical ambitions, I have a strong love for sports, especially football and cricket. Playing these games not only keeps me physically active but also teaches me valuable lessons in teamwork, strategy, and perseverance. Balancing my enthusiasm for AI development with my passion for sports allows me to grow both mentally and physically, helping me stay focused, disciplined, and motivated in all areas of my life.
+      </div>
+      <div class="highlight">
+        #AI developer #sports #gaming #music #travel
+      </div>
+      <div class="education">
+        <strong>EDUCATION</strong><br />
+        Currently doing matric<br />
+        At Bahria College Islamabad.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

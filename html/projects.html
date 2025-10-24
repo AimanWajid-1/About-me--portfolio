@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Projects About me.</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f7ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+  }
+
+
+
+  .pricing-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1000px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .card {
+    background: linear-gradient(145deg, #ffffff, #e6f0ff);
+    border-radius: 2rem;
+    box-shadow:
+      0 15px 25px rgba(0, 123, 255, 0.15),
+      0 5px 15px rgba(0, 123, 255, 0.1);
+    padding: 2rem 1.5rem;
+    flex: 0 0 280px; 
+    opacity: 0;
+    transform: translateX(40px);
+    animation: fadeSlideIn 0.8s forwards;
+    text-align: center; 
+  }
+
+
+  .card:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .card:nth-child(2) {
+    animation-delay: 0.4s;
+    background: linear-gradient(145deg, #007bff 0%, #339cff 100%);
+    color: #fff;
+  }
+  .card:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+  }
+
+  .plan-title {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .icon {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .icon img {
+    width: 50px;
+    height: auto;
+  }
+
+  .features {
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .features a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .features a:hover {
+    text-decoration: underline;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow:
+      0 25px 40px rgba(0, 123, 255, 0.3),
+      0 10px 20px rgba(0, 123, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Animations */
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  /* For tablets: 2 cards per row */
+@media (max-width: 900px) {
+  .card {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .pricing-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="pricing-container">
+  <div class="card">
+    <div class="price">Projects that I have done.</div>
+    <div class="plan-title">Based on python language.</div>
+    <div class="icon">
+      <img src="https://blog.accredian.com/wp-content/uploads/2019/04/Python-logo.jpg" alt="Phone Icon" />
+    </div>
+    <div class="features">
+      <a href="#">Console bsed games using python.</a><br />
+      Making an adventure type game that goes through different stages on console.<br />
+      Making a dice which shows the dice and the number.<br />
+      I have also made a game regarding mcq so for each correct answer u get a point.<br />
+      Making rock_paper siccors using pytho.n<br />
+      
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="price">Machine language projects in future.</div>
+    <div class="plan-title">Unknown for now...</div>
+    <div class="icon">
+      <img src="https://cdn.textstudio.com/output/sample/normal/1/9/2/5/future-logo-73-5291.png" alt="Phone Icon" />
+    </div>
+    <div class="features">
+      <a href="#"></a><br />
+      <br />
+     <br />
+     <br />
+     <br />
+      
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="price">AI projects in future..</div>
+    <div class="plan-title">Unknown for now...</div>
+    <div class="icon">
+      <img src="https://cdn.textstudio.com/output/sample/normal/1/9/2/5/future-logo-73-5291.png" alt="Phone Icon" />
+    </div>
+    <div class="features">
+      <a href="#"></a><br />
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

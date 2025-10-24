@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About – Ayan Wajid.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET ===== */
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%;overflow-x:hidden}
+
+    /* ===== BASE ===== */
+    body {
+      cursor: none;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: #fff;
+  color: #111;
+  opacity: 1;
+  transition: opacity .5s ease;
+  /* Remove flex styles */
+  /* display:flex; flex-direction:column; align-items:center; */
+  min-height: 100%;
+}
+main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: block; /* remove flex completely for main */
+  text-align: center;
+}
+
+    body.fade-out{opacity:0}
+
+    /* ===== LOADER ===== */
+    #loader{
+      position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      background:#fff;z-index:10000;opacity:1;visibility:visible;
+      transition:opacity .6s ease,visibility .6s ease;
+    }
+    #loader.hidden{opacity:0;visibility:hidden}
+
+    .dot-container{display:flex;gap:10px;align-items:flex-end;height:60px}
+    .dot{
+      width:14px;height:14px;border-radius:50%;
+      background:linear-gradient(135deg,#b46ff9,#f2542d);
+      box-shadow:0 4px 8px rgba(0,0,0,0.12);
+      animation:bounce 1s infinite cubic-bezier(.2,.8,.2,1);
+    }
+    .dot:nth-child(2){animation-delay:.16s}
+    .dot:nth-child(3){animation-delay:.32s}
+    @keyframes bounce{
+      0%,80%,100%{transform:translateY(0)}
+      40%{transform:translateY(-18px)}
+    }
+    .loader-text{margin-top:14px;font-weight:700;color:#333;font-size:1rem;letter-spacing:.4px;animation:fadeBlink 1s infinite alternate}
+    @keyframes fadeBlink{from{opacity:.6}to{opacity:1}}
+
+    /* ===== HEADER ===== */
+    header{
+      width:100%;
+      
+      display:flex;justify-content:space-between;align-items:center;
+      padding:1.5rem 2rem;margin-bottom:2rem;
+      
+    }
+    @media (max-width: 768px) {
+  .services, .scroll-slide {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+    .logo{font-weight:800;font-size:1.6rem}
+    .logo span{color:#f2542d;font-style:italic}
+    nav{display:flex;align-items:center;gap:1rem;position:relative}
+    nav a{color:#111;text-decoration:none;font-weight:500;transition:color .18s}
+    nav a:hover{color:#f2542d}
+    .menu-toggle{display:none;width:36px;height:26px;flex-direction:column;justify-content:space-between;cursor:pointer}
+    .menu-toggle span{height:3px;background:#111;border-radius:2px;transition:transform .33s,opacity .33s}
+    .menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .menu-toggle.open span:nth-child(2){opacity:0}
+    .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+    .dropdown-menu{
+      position:absolute;top:calc(100% + 10px);right:0;width:220px;background:#fff;border-radius:12px;padding:.4rem;
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);display:none;flex-direction:column;gap:.25rem;z-index:12006;
+    }
+    .dropdown-menu a{display:block;padding:.65rem .9rem;border-radius:8px;color:#111;text-decoration:none;font-weight:500;transition:all .18s}
+    .dropdown-menu a:hover{background:#f2542d;color:#fff}
+    .dropdown-menu.show{display:flex}
+
+    /* ===== MAIN ===== */
+    
+
+    /* ===== HERO ===== */
+    .hero{
+      display:flex;align-items:center;justify-content:center;
+      gap:2rem;flex-wrap:wrap;
+      animation:dropInBounce 4.5s ease 0.6s both ;
+    }
+    .hero-text,.hero-img{flex:1 1 320px;max-width:480px}
+    .hero-text h1{font-size:2rem;font-weight:800;line-height:1.35;margin-bottom:1rem}
+    .hero-text h1 .highlight1{display:block;font-size:2.4rem;color:#b46ff9}
+    .hero-text h1 .highlight2{display:block;font-size:2.4rem;color:#f2542d}
+    .hero-text p{font-size:1.05rem;color:#555;line-height:1.55;margin-top:.6rem}
+    .hero-img img{width:100%;border-radius:50%;display:block;margin-inline:auto}
+
+    /* ===== ROTATING TEXT ===== */
+    .text-container{min-height:2.2rem;display:flex;align-items:center;justify-content:center;margin-top:14px;margin-bottom:20px}
+    .text{opacity:0;transform:translateY(14px);transition:all .45s cubic-bezier(.2,.9,.2,1)}
+    .text.show{opacity:1;transform:translateY(0)}
+
+    /* ===== SERVICES ===== */
+   
+    .services{
+      margin-top:4rem;
+      transform:translateY(30px);
+      transition:all .85s ease-in-out;
+      text-align:center;
+    }
+  
+    .services.visible{opacity:1;transform:translateY(0)}
+    .service-columns{
+      
+      display:flex;gap:3.25rem;justify-content:center;
+      margin-top:2.5rem;
+    }
+    .service{
+      flex:1 1 260px;max-width:411px;background:#fafafa;padding:1.2rem;border-radius:12px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.04);transition:transform .25s;
+      width: 311px;
+      height: 114px;
+      box-shadow: 
+  0 4px 8px rgba(0, 0, 0, 0.15),   /* subtle lift */
+  0 8px 20px rgba(0, 0, 0, 0.1),   /* depth */
+  0 0 1px rgba(0, 0, 0, 0.05);     /* soft outline */
+border-radius: 12px; 
+margin-top: 33px;
+margin-bottom: 33px;
+    }
+    .service:hover{transform:translateY(-6px)}
+
+    /* ===== BOTTOM ===== */
+    .bottom-section{
+      margin-top:4rem;padding:3rem 1rem;background:#22252b;border-radius:12px;
+      display:flex;justify-content:center;align-items:center;opacity:0;
+      transform:translateX(40px);transition:all .9s;text-align:center;
+    }
+    .bottom-section.visible{opacity:1;transform:translateX(0)}
+    .empty-box{width:min(92%,600px);height:160px;border-radius:12px;background:#2c2f36;
+      box-shadow:0 6px 20px rgba(0,0,0,.2),inset 0 0 40px rgba(255,255,255,0.03)}
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:768px){
+      .service-columns{
+        display: flex;
+        flex-direction:column ;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 
+  0 4px 8px rgba(0, 0, 0, 0.15),   /* subtle lift */
+  0 8px 20px rgba(0, 0, 0, 0.1),   /* depth */
+  0 0 1px rgba(0, 0, 0, 0.05);     /* soft outline */
+border-radius: 12px; 
+
+        
+      }
+      nav a.desktop-link{display:none}
+      .menu-toggle{display:flex}
+      .hero{flex-direction:column;text-align:center}
+      .hero-text p{max-width:92%;margin-inline:auto}
+      header{justify-content:space-between;}
+      .dropdown-menu{right:0;left:auto;}
+    }
+    .projects-heading{
+      margin-bottom: 21px;
+
+    }
+  .contact-section {
+  background-color: #1c1f26;
+  color: #f5f5f5;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  margin: 4rem auto;
+  margin-bottom: none;
+}
+
+.contact-content .subheading {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contact-content .main-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.contact-content .description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+  max-width: 600px;
+  margin: 0 auto;
+}
+#main-content{
+  animation:dropInBounce 1.5s ease 0.3s both  ;
+}
+ @keyframes dropInBounce {
+    0% { transform: translateY(-100px); opacity: 0; }
+    60% { transform: translateY(20px); opacity: 1; }
+    80% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  /* Initial state for any scroll-animated section */
+.scroll-slide {
+  opacity: 0;
+  transform: translateY(50px); /* slide up from below */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-slide.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+    .project-pictures {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container-projects {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      width: 100%;
+      background: #1c1c1c;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+      gap: 40px;
+
+      opacity: 0;
+      transform: translateX(150px);
+      transition: all 1s ease;
+    }
+
+    .container-projects.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== IMAGE BOX ===== */
+.image-box {
+  width: 50%;
+  height: 300px;
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 1s ease;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* ensures the full image is visible */
+  border-radius: 10px;
+  background-color: #000; /* gives a clean dark frame if image doesn’t fill box */
+}
+
+
+    /* ===== TEXT BOX ===== */
+    .text-box {
+      width: 50%;
+      opacity: 0;
+      transform: translateX(100px);
+      transition: all 1s ease;
+    }
+
+    .text-box h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #00aaff;
+      line-height: 1.2;
+    }
+
+    .text-box p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      color: #ccc;
+    }
+
+    .text-box button {
+      background: #0077ff;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .text-box button:hover {
+      background: #005fcc;
+    }
+
+    /* ===== ACTIVE ANIMATIONS ===== */
+    .image-box.visible {
+      opacity: 1;
+      transform: translateY(0);
+      animation: bounce 1.2s ease;
+    }
+
+    .text-box.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(-100px); }
+      50% { transform: translateY(20px); }
+      70% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* ===== RESPONSIVE STYLES ===== */
+    @media (max-width: 1024px) {
+      .container-projects {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 40px 25px;
+      }
+
+      .image-box, .text-box {
+        width: 100%;
+      }
+
+      .text-box {
+        transform: translateY(50px);
+      }
+
+      .text-box h1 {
+        font-size: 1.8rem;
+      }
+
+      .text-box p {
+        font-size: 0.95rem;
+      }
+      
+      .text-box button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+       
+    }
+    @media (pointer: coarse) {
+      body {
+        cursor: auto; /* Restore normal cursor on touch devices */
+      }
+      .cursor {
+        display: none;
+      }
+    }
+
+    @media (max-width: 420px) {
+     body{
+      cursor: auto;
+     }
+     .custom-cursor{
+      display: none;
+     }
+      .project-pictures {
+        padding: 60px 15px;
+        border: 2px solid transparent;
+      background-image:
+        linear-gradient(145deg, #161616, #1c1c1c),
+        linear-gradient(90deg, #0077ff, #00e0ff, #0077ff);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      }
+
+      .container-projects {
+        padding: 25px 20px;
+        border-radius: 12px;
+        border: 2px solid transparent;
+      background-image:
+        linear-gradient(245deg, #070707, #000000),
+        linear-gradient(90deg, #0077ff, #00e0ff, #0077ff);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      }
+
+      .image-box {
+        height: 200px;
+      }
+
+      .text-box h1 {
+        font-size: 1.5rem;
+      }
+
+      .text-box p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .text-box button {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+    .main-projects{
+      margin-top:22px ;
+     background-color: #111111; 
+     border-radius: 12px;
+     
+    }
+/* ===== CUSTOM NEON CURSOR ===== */
+body, a, button, input, textarea {
+  cursor: none !important; /* completely hides default cursor */
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #00ffff; /* neon cyan glow */
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease, width 0.15s ease, height 0.15s ease, background 0.2s;
+  box-shadow: 0 0 10px #00ffff, 0 0 30px #00ffff88;
+  z-index: 9999;
+  margin: none;
+  padding: none;
+}
+
+/* Enlarge cursor on clickable elements */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor {
+  transform: scale(1.6);
+  background: #00ffff22;
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffffaa;
+}
+
+  </style>
+</head>
+<body>
+  <div class="custom-cursor"></div>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="dot-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <div class="loader-text">Loading...</div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Ayan<span>Wajid.</span></div>
+    <nav>
+      <div id="menu-toggle" class="menu-toggle"><span></span><span></span><span></span></div>
+      <div id="dropdown-menu" class="dropdown-menu">
+        <a href="index.html">Home</a>
+        <a href="html/about.html">About</a>
+        <a href="html/projects.html">Projects</a>
+        <a href="html/Summary.html">Summary</a>
+        <a href="html/more_facts.html">More Facts</a>
+        <a href="html/windcharms.pdf">My Story</a>
+        <a href="html/contact.html">Contact →</a>
+      </div>
+      <a class="desktop-link" href="index.html">Home</a>
+      <a class="desktop-link" href="html/about.html">About</a>
+      <a class="desktop-link" href="html/projects.html">Projects</a>
+      <a class="desktop-link" href="html/Summary.html">Summary</a>
+      <a class="desktop-link" href="html/more_facts.html">More Facts</a>
+      <a class="desktop-link" href="html/windcharms.pdf">My Story</a>
+      <a class="desktop-link" href="html/contact.html">Contact →</a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-text">
+        <h1><span class="highlight1">Hello, my name is Ayan</span><span class="highlight2">and I want to become</span>a future AI engineer.</h1>
+        <p>I’ve started my journey with some basic projects related to Python, and now I’m learning machine learning — not bad for 15, right?</p>
+        <div class="text-container"><div id="text" class="text">How are you?</div></div>
+      </div>
+      <div class="hero-img">
+        <img src="https://cdn-images.dzcdn.net/images/cover/98bea282543dfbfa81f9a1d0bf45b4e0/1900x1900-000000-80-0-0.jpg" alt="Profile Image">
+      </div>
+    </section>
+
+  
+    <section class="services " id="services">
+      <h2 class="projects-heading">Projects.</h2>
+      <h3>Here I’ll talk about my skills & some of my projects.</h3>
+      <div class="service-columns">
+        <div class="service"><h4>What I know.</h4>
+          JavaScript <br>
+          HTML & CSS <br>
+          Python <br>
+          A bit of C++ <br>
+          </div>
+        <div class="service">
+          <h4>More about me.</h4>
+          <p>Good at typing (66 WPM)</p>
+          <p>Writer of Windcharms</p>
+          <p>Enjoy sports like football & cricket</p>
+          </ul></div>
+        <div class="service"><h4>Python projects</h4>
+          Rock Paper Scissors <br>
+          Text Adventure game <br>
+          Dice Roller using random <br>
+        </div>
+      </div>
+    </section>
+
+  
+  </main>
+  <section class="main-projects">
+  <section class="project-pictures">
+    <div class="container-projects">
+      <div class="image-box">
+        <img src="images/console_pic.png" alt="Project Image">
+      </div>
+      <div class="text-box">
+        <h1>Project 1</h1>
+        <p>This is the project that I mentioned earlier about a rock-paper-scissors game.</p>
+        <button onclick="window.open('https://github.com/AimanWajid-1/rock-paper-scissors', '_blank')">VISIT PROJECT</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-pictures">
+    <div class="container-projects">
+      <div class="image-box">
+        <img src="images/adventure-type games.PNG" alt="CodeWave">
+      </div>
+      <div class="text-box">
+        <h1>Project 2</h1>
+        <p>This like I mentioned before is a project related to an adventure type game, and for different choices there are different paths.</p>
+        <button>Since they are small scaled projects I only added one visit projects.</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-pictures">
+    <div class="container-projects">
+      <div class="image-box">
+        <img src="images/dice-rolling-game-pic.PNG" alt="DataForge">
+      </div>
+      <div class="text-box">
+        <h1>Projects 3</h1>
+        <p>Dice rolling game which generates a random dice number each time untill quited.</p>
+        <button>Since they are small scaled projects I only added one visit projects.</button>
+      </div>
+    </div>
+  </section>
+  <section class="project-pictures">
+    <div class="container-projects">
+      <div class="image-box">
+        <img src="images/m-c-q-pic.PNG" alt="DataForge">
+      </div>
+      <div class="text-box">
+        <h1>Projects 4</h1>
+        <p>It is a question asking game and rewards you a point for every question you get.</p>
+        <button>Since they are small scaled projects I only added one visit projects.</button>
+      </div>
+    </div>
+  </section>
+  </section>
+ <section class="contact-section " id="contact">
+  <div class="contact-content">
+    <p class="subheading">Get in touch.</p>
+    <h2 class="main-heading">Let’s Work Together</h2>
+    <p class="description">
+      I'm open for new opportunities — especially ambitious or interesting projects.I am still new but will be great one day. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+    </p>
+  </div>
+</section>
+  
+<script src="index.js"></script>
+
+  
+
+
+
+  
+</body>
+</html>
